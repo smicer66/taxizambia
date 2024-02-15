@@ -1,0 +1,85 @@
+Header set Access-Control-Allow-Origin "*"
+Header set Authorization "*"
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+AddType image/jpeg JPG
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://festivals.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://festivals.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://festivities.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://festivities.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://payments.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://payments.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://qr.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://qr.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://stanbicpromo.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://stanbicpromo.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://wallet.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://wallet.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.festivals.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.festivals.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.festivities.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.festivities.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.payments.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.payments.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.stanbicpromo.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.stanbicpromo.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.wallet.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.wallet.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://festivals.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://festivals.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://festivities.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://festivities.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://payments.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://payments.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://taxizambia.probasepay.com/adverts/*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://taxizambia.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://taxizambia.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://wallet.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://wallet.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.festivals.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.festivals.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.festivities.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.festivities.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.payments.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.payments.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.wallet.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.wallet.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://abodelocator.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://abodelocator.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://abodelocator.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://abodelocator.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.abodelocator.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.abodelocator.probasepay.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.abodelocator.probasepay.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.abodelocator.probasepay.com$      [NC]
+#RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
