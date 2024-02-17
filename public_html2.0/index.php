@@ -20,7 +20,7 @@ header("Access-Control-Allow-Origin: *");
 |
 */
 
-require __DIR__.'/../taxizambia/bootstrap/autoload.php';
+require __DIR__.'/../ver1/bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ require __DIR__.'/../taxizambia/bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../taxizambia/bootstrap/app.php';
+$app = require_once __DIR__.'/../ver1/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------

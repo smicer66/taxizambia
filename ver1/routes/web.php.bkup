@@ -1,0 +1,98 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+
+Route::get('/', function () {
+    return view('guest.index');
+});
+
+Route::get('/e1', function () {
+    return view('guest.e');
+});
+
+
+
+
+Route::group([
+    'prefix' => 'api/v1',
+    'namespace' => 'Api'
+], function () {
+    Route::post('/auth/register', 'AuthController@register');
+    Route::post('/auth/register-otp', 'AuthController@registerOTP');
+    Route::post('/auth/login', 'AuthController@login');
+    Route::post('/auth/recover', 'AuthController@recoverPassword');
+    Route::get('/auth/test', 'AuthController@test');
+	Route::post('/getUserByToken', 'AuthController@getUserByToken');
+
+});
+
+Route::group([
+    'namespace' => 'Api'
+], function () {
+	Route::post('/contact-us/request-a-payment-card', 'VehicleController@sendRequestForAPaymentCard');
+});
+
+Route::group([
+    'prefix' => 'api/v2',
+    'namespace' => 'Api'
+], function () {
+    /*Manage Accounts*/
+	//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6XC9cL3RheGl6YW1iaWEuY29tXC9hcGlcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUwNzIxODgwMSwiZXhwIjoxNTA3MjIyNDAxLCJuYmYiOjE1MDcyMTg4MDEsImp0aSI6IjhjMDM1MzIzMTEzMzA1OTYzZTc5MzM5Y2FkYzU3NTMxIn0.dK-ataSHh_oyvsWbJFvYV2VySz_quwZl83V_kBeuIVE
+	Route::post('/accounts/pulllist', 'AccountsController@pulllist');
+	Route::post('/getAvailableVehiclesBetweenPoints', 'VehicleController@getAvailableVehiclesBetweenPoints');
+	Route::post('/getActiveDrivers', 'VehicleController@getActiveDrivers');
+	Route::post('/getSearchByAddress', 'VehicleController@getSearchByAddress');
+	Route::post('/getDriverDeal', 'VehicleController@getDriverDeal');
+	Route::post('/makeDriverDeal', 'VehicleController@makeDriverDeal');
+	Route::post('/removeDriverDeal', 'VehicleController@removeDriverDeal');
+	Route::post('/getTripById', 'VehicleController@getTripById');
+	Route::post('/getTripGoingById', 'VehicleController@getTripGoingById');
+	Route::post('/getDriverPosition', 'VehicleController@getDriverPosition');
+	Route::post('/verifyProbaseWallet', 'VehicleController@verifyProbaseWallet');
+	Route::post('/getTrips', 'VehicleController@getTrips');
+	Route::post('/sendSupportMessage', 'VehicleController@sendSupportMessage');
+	Route::post('/getDealForDriver', 'VehicleController@getDealForDriver');
+	Route::post('/getTripFromDeal', 'VehicleController@getTripFromDeal');
+	Route::post('/getPassenger', 'VehicleController@getPassenger');
+	Route::post('/dropOffPassenger', 'VehicleController@dropOffPassenger');
+	Route::post('/acceptJob', 'VehicleController@acceptJob');
+	Route::post('/setTripGoingById', 'VehicleController@setTripGoingById');
+	Route::post('/rateTrip', 'VehicleController@rateTrip');
+	Route::post('/getDriverDealStatus', 'VehicleController@getDriverDealStatus');
+	Route::post('/cancelPassengerOpenDeals', 'VehicleController@cancelPassengerOpenDeals');
+	Route::post('/payTripFeeUsingCard', 'VehicleController@payTripFeeUsingCard');
+	Route::post('/payTripFeeUsingCardStepTwo', 'VehicleController@payTripFeeUsingCardStepTwo');
+	Route::post('/getTransactionByTripId', 'VehicleController@getTransactionByTripId');
+	Route::post('/getTripsOfDriver', 'VehicleController@getTripsOfDriver');
+	Route::post('/getTripsOfDriverForWallet', 'VehicleController@getTripsOfDriverForWallet');
+	Route::post('/updateAvailabilityForJob', 'VehicleController@updateAvailabilityForJob');
+	Route::post('/widthDraw', 'VehicleController@widthDraw');
+	Route::post('/logout-user', 'AuthController@logoutUser');
+	Route::post('/update-vehicle-position', 'VehicleController@updateVehiclePosition');
+	Route::post('/pullRegisterData', 'VehicleController@pullRegisterData');
+	Route::post('/getDriverPosition1', 'VehicleController@getDriverPosition1');
+	Route::post('/payTripFeeUsingProbaseWallet', 'VehicleController@payTripFeeUsingProbaseWallet');
+	Route::post('/payTripFeeUsingProbaseWalletStepTwo', 'VehicleController@payTripFeeUsingProbaseWalletStepTwo');
+	Route::post('/authenticate-probasepay-wallet', 'VehicleController@authenticateProbasePayWallet');
+	Route::post('/authenticate-probasepay-wallet-with-otp', 'VehicleController@authenticateProbasePayWalletWithOtp');
+
+});
+
+
+
+
+
+
+
+
+
+
